@@ -2,6 +2,8 @@
 import { useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import addBg from '../images/addBg.jpg';
+import bg from '../images/bg.jpg';
 
 
 const Addcontact = () =>{
@@ -55,10 +57,23 @@ const Addcontact = () =>{
     }
 
    return(     
-
-                    //contact adding form
+           
+    //contact adding form
+    <div style={{backgroundImage:`url(${addBg})` ,backgroundRepeat:"no-repeat",
+                                backgroundBlendMode:"darken",position:"absolute",
+                                backfaceVisibility:"revert",backgroundSize:"cover",
+                                backgroundPosition:"center",height:"100%" ,width:"100%"}}>
+               
         <form    style={{ margin:"90px 0px 0px 300px"}}>
-         <h1 className="text-start mt-3">Add Contact</h1>
+
+            <div style={{backgroundImage:`url(${bg})` ,backgroundRepeat:"no-repeat",
+                             backgroundBlendMode:"darken",backgroundSize:"cover",
+                             backgroundPosition:"center",height:"50%" ,width:"70%",
+                             padding:"40px",borderRadius:"60px 20px",
+                             boxShadow:"3px 0 2px 4px "}}>
+
+         <h1 className="text-start">Add Contact</h1>
+
          <div>
              
             <input type="text" name="yourName"
@@ -82,6 +97,7 @@ const Addcontact = () =>{
             value={contact}
             onChange = {e => onChange(e)}
             />
+
             <div className="d-flex mt-3" >
             <button type="submit" value="send" onClick={onSubmitForm}
             className="form-control btn btn-outline-primary"
@@ -95,11 +111,16 @@ const Addcontact = () =>{
             fontSize:"20px",}}>Cancel</button>
 
              </div>
-
              <ToastContainer />
-                  </div>
+             </div>
+             
+             </div>
+
             </form>
+
+            </div>
             
+           
    );
 }
 export default Addcontact;

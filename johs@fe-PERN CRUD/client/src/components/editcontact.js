@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { Fragment } from "react";
+import { Edit } from "@material-ui/icons";
 // import { ToastContainer,toast } from "react-toastify";
 
 const Editcontact = ({contacts}) =>{
@@ -38,25 +39,32 @@ const Editcontact = ({contacts}) =>{
          headers:{"Content-Type" :" application/json"},
          body: JSON.stringify(body)
       });
-      console.log(updateContact)
+      // console.log(updateContact)
       window.location = "/";
       
    }
 
+   const onCancelForm = (e) =>{
+      e.preventDefault();
+      window.location ="/"
+
+  }
+
    return(
+            // ~ edit contact component
        <Fragment>
 
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target={`#id${contacts.user_id}`}>
-      Edit
-     </button>
-      <div class="modal" id={`id${contacts.user_id}`}>
+       <button type="button"  class="btn btn-primary btn-sm " data-toggle="modal" 
+       data-target={`#id${contacts.user_id}` }>
+         <Edit/>
+        </button>
+        <div class="modal" id={`id${contacts.user_id}`} >
         <div class="modal-dialog">
-      <div class="modal-content">
-<div class="modal-header">
-<h1 class="modal-title" className="text-start mt-3">Edit Contact</h1>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-
+        <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title" className="text-start mt-3">Edit Contact</h1>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
 
       <div class="modal-body">
             <input type="text" name="yourName" value={yourName}
@@ -80,21 +88,24 @@ const Editcontact = ({contacts}) =>{
 
 
          <div class="modal-footer">
-
+          <div>
          <button type="submit"  onClick={updateContact}
          className="form-control btn btn-primary"
+        
             style={{ marginTop: "20px", width:"150px", borderRadius:"20px 40px"}}>
-               Edit
-            </button>
+               Update
+            </button> </div>
 
+         <div>
            <button type="button" class="btn btn-danger" 
          style={{ marginTop: "20px", width:"150px", borderRadius:"20px 40px"}}
-          data-dismiss="modal">Close</button>
+          data-dismiss="modal">Close</button> </div>
          </div>
 
          </div>
        </div>
-   </div> 
+    </div>  
+
  </Fragment>
    );
 }

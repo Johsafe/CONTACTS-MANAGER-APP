@@ -7,7 +7,9 @@ CREATE TABLE my_user(
     user_name VARCHAR(255) NOT NULL,
     user_contact VARCHAR(255) NOT NULL
 );
+ 
 
+ --AOB
 --inserting a fake user
 INSERT INTO my_user(user_name,user_email,user_contact) VALUES('jose','joseph@gmail.com' ,0745736);
 

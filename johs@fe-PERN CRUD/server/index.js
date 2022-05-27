@@ -18,6 +18,13 @@ app.use(cors());
     try {
 
         const { yourName , email, contact } = req.body
+        
+        const user = await pool.query("SELECT * FROM my_user WHERE  user_email = $1",[
+            email
+        ]);        
+        if(user.rows.length !==0){
+            return res.status(401).json("User already exists")
+        }
 
         const newContact = await pool.query(
             "INSERT INTO my_user ( user_name, user_email, user_contact) VALUES ($1 ,$2 , $3) RETURNING * ",

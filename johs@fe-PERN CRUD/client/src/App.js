@@ -3,9 +3,12 @@ import Editcontact from './components/editcontact';
 import Listcontact from './components/listcontacts';
 import './App.css';
 import Addcontact from './components/addcontact';
+import contactCard from './components/Contactcard';
+
 
 function App() {
   return (
+    
      <div>
       <Switch>
 
@@ -17,12 +20,18 @@ function App() {
         <Addcontact/>
         </Route>
 
-        <Route path='/edit'>
-        <Editcontact/>
+        <Route path='/contact/:id'>
+        <contactCard/>
         </Route>
 
+        {/* <Route path="/contact/:id" element={ <contactCard/> }/> */}
+        
+
       </Switch>
+      
       </div>
+
+      
       
   );
 }
